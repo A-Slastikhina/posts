@@ -1,6 +1,6 @@
 import React, { useContext, useState, useLayoutEffect } from 'react';
 
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, Snackbar } from '@mui/material';
 import { PostsContext } from '../interfaces/PostsContext';
 
 export const NewPost: React.FC = () => {
@@ -21,6 +21,7 @@ export const NewPost: React.FC = () => {
   const [currentTitle, setCurrentTitle] = useState('');
   const [currentText, setCurrentText] = useState('');
   const [isErrorCheckingActive, setIsErrorCheckingActive] = useState(false);
+  const [isSnackbarOpened, setIsSnackbarOpened] = useState(false);
   const handleCreateNewPost = () => {
     if (!currentTitle || !currentText) {
       alert('Заполните обязательные поля');
@@ -41,6 +42,9 @@ export const NewPost: React.FC = () => {
     setAllPosts((allPosts) => [...allPosts, newPost]);
     setCurrentTitle('');
     setCurrentText('');
+    setIsSnackbarOpened(true);
+    setTimeout(() => setIsSnackbarOpened(false), 3000);
+  
   };
   const handleNameChanged = (
     evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -63,56 +67,64 @@ export const NewPost: React.FC = () => {
   ) => {
     setIsErrorCheckingActive(false);
     setCurrentText(evt.target.value);
+   
+   
   };
   return (
-    <form className='input-container'>
-      <TextField
-        id='name-input'
-        label='Имя'
-        multiline
-        maxRows={4}
-        value={currentName}
-        onChange={handleNameChanged}
-      />
-      <TextField
-        id='surname-input'
-        label='Фамилия'
-        multiline
-        maxRows={4}
-        value={currentSurname}
-        onChange={handleSurnameChanged}
-      />
+    <>
+      <form className='input-container'>
+        <TextField
+          id='name-input'
+          label='Имя'
+          multiline
+          maxRows={4}
+          value={currentName}
+          onChange={handleNameChanged}
+        />
+        <TextField
+          id='surname-input'
+          label='Фамилия'
+          multiline
+          maxRows={4}
+          value={currentSurname}
+          onChange={handleSurnameChanged}
+        />
 
-      <TextField
-        id='title'
-        label='Название'
-        multiline
-        maxRows={4}
-        required={true}
-        value={currentTitle}
-        error={Boolean(!currentTitle && isErrorCheckingActive)}
-        onChange={handleTitleChanged}
-      />
+        <TextField
+          id='title'
+          label='Название'
+          multiline
+          maxRows={4}
+          required={true}
+          value={currentTitle}
+          error={Boolean(!currentTitle && isErrorCheckingActive)}
+          onChange={handleTitleChanged}
+        />
 
-      <TextField
-        id='post-body'
-        label='Пост'
-        multiline
-        rows={4}
-        fullWidth
-        required={true}
-        value={currentText}
-        error={Boolean(!currentText && isErrorCheckingActive)}
-        onChange={handlePostChanged}
+        <TextField
+          id='post-body'
+          label='Пост'
+          multiline
+          rows={4}
+          fullWidth
+          required={true}
+          value={currentText}
+          error={Boolean(!currentText && isErrorCheckingActive)}
+          onChange={handlePostChanged}
+        />
+        <Button
+          variant='contained'
+          onClick={() => {
+            handleCreateNewPost();
+          }}
+        >
+          Добавить статью
+        </Button>
+      </form>
+      <Snackbar
+        open={isSnackbarOpened}
+        message='Пост добавлен'
       />
-      <Button
-        variant='contained'
-        onClick={() => {
-          handleCreateNewPost();
-        }}
-      >
-        Добавить статью
-      </Button>
-    </form>
+    </>
   );
 };
