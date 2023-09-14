@@ -1,0 +1,46 @@
+[
+    {
+     "title": "Typescript",
+     "body": "Weve now added a type variable Type to the identity function. This Type allows us to capture the type the user provides (e.g. number), so that we can use that information later. Here, we use Type again as the return type. On inspection, we can now see the same type is used for the argument and the return type. This allows us to traffic that type information in one side of the function and out the other",
+     "date": 1694595745408,
+     "author": {
+      "name": "Jon",
+      "surname": "Snow"
+     },
+     "id": 1,
+     "comments":[{"id":1, "text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla id sollicitudin ipsum. Maecenas malesuada sollicitudin fermentum. Donec in ipsum orci. Duis vel bibendum erat."},{"id":2, "text":"first comment"}]
+    },
+    {
+     "title": "React",
+     "body": "Weve now added a type variable Type to the identity function. This Type allows us to capture the type the user provides (e.g. number), so that we can use that information later. Here, we use Type again as the return type. On inspection, we can now see the same type is used for the argument and the return type. This allows us to traffic that type information in one side of the function and out the other",
+     "date": 1694595745408,
+     "author": {
+      "name": "Bran",
+      "surname": "Stark"
+     },
+     "id": 2,
+     "comments":[{"id":1, "text":"first comment"},{"id":2, "text":"first comment"}]
+    },
+    {
+     "title": "Javascript",
+     "body": "Here we explicitly set Type to be string as one of the arguments to the function call, denoted using the <> around the arguments rather thans",
+     "date": 1694595745408,
+     "author": {
+      "name": "Tirion",
+      "surname": "Lannister"
+     },
+     "id": 3,
+     "comments":[{"id":1, "text":"first comment"},{"id":2, "text":"first comment"}]
+    },
+    {
+     "title": "Redux",
+     "body": "body 4",
+     "date": 1694595745408,
+     "author": {
+      "name": "Sansa",
+      "surname": "Stark"
+     },
+     "id": 4,
+     "comments":[{"id":1, "text":"first comment"},{"id":2, "text":"first comment"} ]
+    }
+   ]

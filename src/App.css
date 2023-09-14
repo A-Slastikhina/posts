@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+}
+
+.container{
+  margin-top: 50px;
+  width: 80%;
+}
+
+.input-container{
+  width: 60%;
+  margin:30px auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
